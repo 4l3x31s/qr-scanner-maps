@@ -13,6 +13,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: Text('Historial'),
@@ -20,7 +21,10 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.delete_forever),
-            onPressed: () => Navigator.pushNamed(context, 'mapa'),
+            onPressed: () {
+              final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
+              scanListProvider.borrarTodos();
+            },
           ),
         ],
       ),
